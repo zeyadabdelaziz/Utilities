@@ -1,0 +1,52 @@
+public static class StringUtilities
+{
+    public static bool IsPalindrome(string str)
+    {
+        if (string.IsNullOrEmpty(str))
+        {
+            return false;
+        }
+        
+        int left = 0;
+        int right = str.Length - 1;
+        
+        while (left < right)
+        {
+            if (str[left] != str[right])
+            {
+                return false;
+            }
+            
+            left++;
+            right--;
+        }
+        
+        return true;
+    }
+    
+    public static int ToWords(string str)
+    {
+        if (string.IsNullOrEmpty(str))
+        {
+            return 0;
+        }
+        
+        string[] words = str.Split(new char[] {' '}, StringSplitOptions.RemoveEmptyEntries);
+        
+        return words.Length;
+    }
+    
+    public static string ReverseWords(string str)
+    {
+        if (string.IsNullOrEmpty(str))
+        {
+            return string.Empty;
+        }
+        
+        string[] words = str.Split(new char[] {' '}, StringSplitOptions.RemoveEmptyEntries);
+        
+        return string.Join(" ", words.Reverse());
+    }
+    
+    // Add more methods as needed
+}
